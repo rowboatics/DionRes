@@ -152,8 +152,6 @@ public class NewPostUploadTaskFragment extends Fragment {
             }
             FirebaseStorage storageRef = FirebaseStorage.getInstance();
             StorageReference photoRef = storageRef.getReferenceFromUrl("gs://" + getString(R.string.google_storage_bucket));
-
-
             Long timestamp = System.currentTimeMillis();
             final StorageReference fullSizeRef = photoRef.child(FirebaseUtil.getCurrentUserId()).child("full").child(timestamp.toString()).child(fileName + ".jpg");
             final StorageReference thumbnailRef = photoRef.child(FirebaseUtil.getCurrentUserId()).child("thumb").child(timestamp.toString()).child(fileName + ".jpg");

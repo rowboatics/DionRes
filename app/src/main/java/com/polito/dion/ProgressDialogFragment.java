@@ -15,14 +15,10 @@
  */
 
 package com.polito.dion;
-
-
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-
-
 public class ProgressDialogFragment extends DialogFragment {
     private static final String KEY_TITLE = "title";
 

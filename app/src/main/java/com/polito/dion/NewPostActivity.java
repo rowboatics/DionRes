@@ -44,8 +44,6 @@ import java.util.UUID;
 
 import pub.devrel.easypermissions.AfterPermissionGranted;
 import pub.devrel.easypermissions.EasyPermissions;
-
-
 public class NewPostActivity extends BaseActivity implements
         EasyPermissions.PermissionCallbacks,
         NewPostUploadTaskFragment.TaskCallbacks {
@@ -68,8 +66,6 @@ public class NewPostActivity extends BaseActivity implements
     private static final String[] cameraPerms = new String[]{
             Manifest.permission.READ_EXTERNAL_STORAGE
     };
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

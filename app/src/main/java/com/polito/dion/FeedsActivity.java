@@ -49,7 +49,7 @@ public class FeedsActivity extends AppCompatActivity implements PostsFragment.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_feeds);
+        setContentView(R.layout.activity_groups);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -76,6 +76,18 @@ public class FeedsActivity extends AppCompatActivity implements PostsFragment.On
                 startActivity(newPostIntent);
             }
         });
+
+        final int[] ICONS = new int[]{
+                R.drawable.ic_tab_overview,
+                R.drawable.ic_tab_groups
+        };
+
+        //Get reference to your Tablayout
+        tabLayout.setupWithViewPager(viewPager);
+
+        tabLayout.getTabAt(0).setIcon(ICONS[0]);
+        tabLayout.getTabAt(1).setIcon(ICONS[1]);
+
     }
 
     @Override

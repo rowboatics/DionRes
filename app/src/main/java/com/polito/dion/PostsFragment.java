@@ -53,8 +53,6 @@ public class PostsFragment extends Fragment {
     public static final int TYPE_FEED = 1002;
     private int mRecyclerViewPosition = 0;
     private OnPostSelectedListener mListener;
-
-
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter<PostViewHolder> mAdapter;
 
@@ -290,8 +288,6 @@ public class PostsFragment extends Fragment {
             ((FirebaseRecyclerAdapter) mAdapter).cleanup();
         }
     }
-
-
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
         // Save currently selected layout manager.

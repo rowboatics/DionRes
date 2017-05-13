@@ -103,8 +103,6 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
         userDetailIntent.putExtra(UserDetailActivity.USER_ID_EXTRA_NAME, authorId);
         context.startActivity(userDetailIntent);
     }
-
-
     public void setText(final String text) {
         if (text == null || text.isEmpty()) {
             mPostTextView.setVisibility(View.GONE);
@@ -143,8 +141,6 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
         mLikeIcon.setImageDrawable(ContextCompat.getDrawable(context,
                 status == LikeStatus.LIKED ? R.drawable.heart_full : R.drawable.heart_empty));
     }
-
-
     public interface PostClickListener {
         void showComments();
         void toggleLike();

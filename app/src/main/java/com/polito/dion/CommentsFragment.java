@@ -45,8 +45,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ServerValue;
 import com.polito.dion.Models.Author;
 import com.polito.dion.Models.Comment;
-
-
 /**
  * This fragment shows the comments for a post.
  * Use the {@link CommentsFragment#newInstance} factory method to
