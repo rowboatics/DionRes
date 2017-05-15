@@ -39,7 +39,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_welcome);
 
         findViewById(R.id.sign_in_button).setOnClickListener(this);
-        findViewById(R.id.explore_button).setOnClickListener(this);
+        findViewById(R.id.tvLogin).setOnClickListener(this);
 
         mAuth = FirebaseAuth.getInstance();
         if (FirebaseUtil.getCurrentUserId() != null) {
@@ -51,7 +51,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         int id = v.getId();
         switch (id) {
-            case R.id.explore_button:
+            case R.id.tvLogin:
                 mAuth.signInAnonymously().addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {

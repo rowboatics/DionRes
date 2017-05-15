@@ -75,6 +75,12 @@
     <string name="title_activity_user_area">UserAreaActivity</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_triallog">Trial Print Email</string>
+    <string name="groups">Groups</string>
+    <string name="overview">Overview</string>
+    <string name="search">Search</string>
+    <string name="common_signin_button_text_long">Sign in with Google</string>
+    <string name="without_login">Guest Mode</string>
+
 
     <array name="genres">
         <item>Event</item>
@@ -91,8 +97,5 @@
         <item>Loco</item>
         <item>Franco</item>
     </array>
-    <string name="groups">Groups</string>
-    <string name="overview">Overview</string>
-    <string name="search">Search</string>
 
 </resources>

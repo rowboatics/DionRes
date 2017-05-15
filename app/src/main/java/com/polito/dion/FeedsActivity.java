@@ -135,7 +135,7 @@ public class FeedsActivity extends AppCompatActivity implements PostsFragment.On
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            // TODO: Add settings screen.
+            Toast.makeText(FeedsActivity.this, "Settings Clicked.", Toast.LENGTH_SHORT).show();
             return true;
         } else if (id == R.id.action_profile) {
             startActivity(new Intent(this, ProfileActivity.class));

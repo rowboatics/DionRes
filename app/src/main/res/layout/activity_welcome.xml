@@ -1,34 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    tools:context="com.polito.dion.WelcomeActivity">
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.polito.dion.WelcomeActivity"
+    android:background="@color/colorPrimary"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:paddingTop="56dp">
 
-        android:orientation="vertical">
-        <TextView
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:text="@string/welcome_screen_text"
-            style="@style/WelcomeScreenHeaderTextStyle"/>
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="70sp"
+            android:src="@drawable/logo" />
+
+
         <Button
             android:id="@+id/sign_in_button"
-            android:layout_width="200dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/sign_in_button_text"
-            style="@style/Widget.AppCompat.Button.Colored"/>
-        <Button
-            android:id="@+id/explore_button"
-            android:layout_width="200dp"
+            android:text="@string/login"
+            android:textSize="20sp"
+            android:textColor="@color/colorLightButton"
+            android:theme="@style/AppTheme.Button"
+            />
+
+        <TextView
+            android:id="@+id/tvLogin"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/explore_button_text"
-            style="@style/Widget.AppCompat.Button.Colored"/>
+            android:layout_marginBottom="24sp"
+            android:gravity="center"
+            android:text="@string/haveAccount"
+            android:textColor="@color/colorLightGrey"
+            android:textSize="16sp" />
+
     </LinearLayout>
-</FrameLayout>
+</android.support.design.widget.CoordinatorLayout>
