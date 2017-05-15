@@ -37,12 +37,11 @@
             />
 
         <TextView
-            android:id="@+id/tvLogin"
+            android:id="@+id/tvStubExplore"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24sp"
             android:gravity="center"
-            android:text="@string/haveAccount"
+            android:text="@string/explore"
             android:textColor="@color/colorLightGrey"
             android:textSize="16sp" />
 

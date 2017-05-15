@@ -23,6 +23,9 @@
     <string name="groups">Gruppi</string>
     <string name="overview">Panoramica</string>
     <string name="search">Ricerca</string>
-    <string name="common_signin_button_text_long">Accedi con Google</string>
+    <string name="common_signin_button_text_long">  Accedi con Google</string>
     <string name="without_login">Modalità Guest</string>
+    <string name="skip">Salta</string>
+    <string name="intro1">Dividere le bollette, l\'affitto e le spese tra gli amici</string>
+    <string name="explore">Esplora senza accedere</string>
 </resources>

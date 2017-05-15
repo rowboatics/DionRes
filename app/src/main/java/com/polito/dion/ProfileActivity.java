@@ -91,6 +91,7 @@ public class ProfileActivity extends BaseActivity implements
         findViewById(R.id.launch_sign_in).setOnClickListener(this);
         findViewById(R.id.show_feeds_button).setOnClickListener(this);
         findViewById(R.id.sign_out_button).setOnClickListener(this);
+        findViewById(R.id.tvExplore).setOnClickListener(this);
     }
 
     @Override
@@ -109,12 +110,34 @@ public class ProfileActivity extends BaseActivity implements
                 Intent feedsIntent = new Intent(this, FeedsActivity.class);
                 startActivity(feedsIntent);
                 break;
+            case R.id.tvExplore:
+                exploreNoLogin();
+                break;
         }
     }
+
+
 
     private void launchSignInIntent() {
         Intent intent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(intent, RC_SIGN_IN);
+    }
+
+    private  void exploreNoLogin() {
+        mAuth.signInAnonymously().addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+            @Override
+            public void onSuccess(AuthResult authResult) {
+                Intent feedsIntent = new Intent(ProfileActivity.this, FeedsActivity.class);
+                startActivity(feedsIntent);
+            }
+        }).addOnFailureListener( new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(ProfileActivity.this, "Unable to sign in anonymously.",
+                        Toast.LENGTH_SHORT).show();
+                Log.e(TAG, e.getMessage());
+            }
+        });
     }
 
     @Override

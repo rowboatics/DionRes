@@ -17,12 +17,15 @@
 package com.polito.dion;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.Toast;
+
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
+
+
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -39,7 +42,10 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_welcome);
 
         findViewById(R.id.sign_in_button).setOnClickListener(this);
-        findViewById(R.id.tvLogin).setOnClickListener(this);
+        findViewById(R.id.tvStubExplore).setOnClickListener(this);
+
+        startActivity(new Intent(WelcomeActivity.this,DefaultIntro.class));
+
 
         mAuth = FirebaseAuth.getInstance();
         if (FirebaseUtil.getCurrentUserId() != null) {
@@ -51,7 +57,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         int id = v.getId();
         switch (id) {
-            case R.id.tvLogin:
+            case R.id.tvStubExplore:
                 mAuth.signInAnonymously().addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {

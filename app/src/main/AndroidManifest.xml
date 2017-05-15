@@ -50,6 +50,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".DefaultIntro"
+            android:label="Intro Label"
+            android:theme="@style/FullscreenTheme">
+
+        </activity>
+
         <activity
             android:name=".CommentsActivity"
             android:label="@string/title_activity_comments"
