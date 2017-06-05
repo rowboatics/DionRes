@@ -42,8 +42,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FeedsActivity extends AppCompatActivity implements PostsFragment.OnPostSelectedListener {
-    private static final String TAG = "FeedsActivity";
+public class GroupsActivity extends AppCompatActivity implements PostsFragment.OnPostSelectedListener {
+    private static final String TAG = "GroupsActivity";
     private FloatingActionButton mFab;
 
     @Override
@@ -69,10 +69,10 @@ public class FeedsActivity extends AppCompatActivity implements PostsFragment.On
             public void onClick(View view) {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 if (user == null || user.isAnonymous()) {
-                    Toast.makeText(FeedsActivity.this, "You must sign-in to post.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(GroupsActivity.this, "You must sign-in to post.", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Intent newPostIntent = new Intent(FeedsActivity.this, NewPostActivity.class);
+                Intent newPostIntent = new Intent(GroupsActivity.this, NewPostActivity.class);
                 startActivity(newPostIntent);
             }
         });
@@ -135,7 +135,7 @@ public class FeedsActivity extends AppCompatActivity implements PostsFragment.On
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            Toast.makeText(FeedsActivity.this, "Settings Clicked.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(GroupsActivity.this, "Settings Clicked.", Toast.LENGTH_SHORT).show();
             return true;
         } else if (id == R.id.action_profile) {
             startActivity(new Intent(this, ProfileActivity.class));

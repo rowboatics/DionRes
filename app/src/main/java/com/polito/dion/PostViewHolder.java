@@ -129,7 +129,7 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void setNumLikes(long numLikes) {
-        String suffix = numLikes == 1 ? " like" : " likes";
+        String suffix = numLikes == 1  ? " Member" : " Members";
         mNumLikesView.setText(numLikes + suffix);
     }
 

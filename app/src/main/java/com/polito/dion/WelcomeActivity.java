@@ -61,7 +61,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                 mAuth.signInAnonymously().addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
-                        Intent feedsIntent = new Intent(WelcomeActivity.this, FeedsActivity.class);
+                        Intent feedsIntent = new Intent(WelcomeActivity.this, GroupsActivity.class);
                         startActivity(feedsIntent);
                     }
                 }).addOnFailureListener( new OnFailureListener() {

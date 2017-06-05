@@ -77,7 +77,7 @@
                 android:id="@+id/post_like_icon"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/heart_full"/>
+                android:src="@drawable/ic_checkbox_checked"/>
             <ImageView
                 android:id="@+id/post_comment_icon"
                 android:layout_width="30dp"

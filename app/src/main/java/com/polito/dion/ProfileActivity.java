@@ -69,6 +69,7 @@ public class ProfileActivity extends BaseActivity implements
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
         // Initialize authentication and set up callbacks
         mAuth = FirebaseAuth.getInstance();
 
@@ -107,7 +108,7 @@ public class ProfileActivity extends BaseActivity implements
                 showSignedOutUI();
                 break;
             case R.id.show_feeds_button:
-                Intent feedsIntent = new Intent(this, FeedsActivity.class);
+                Intent feedsIntent = new Intent(this, GroupsActivity.class);
                 startActivity(feedsIntent);
                 break;
             case R.id.tvExplore:
@@ -127,7 +128,7 @@ public class ProfileActivity extends BaseActivity implements
         mAuth.signInAnonymously().addOnSuccessListener(new OnSuccessListener<AuthResult>() {
             @Override
             public void onSuccess(AuthResult authResult) {
-                Intent feedsIntent = new Intent(ProfileActivity.this, FeedsActivity.class);
+                Intent feedsIntent = new Intent(ProfileActivity.this, GroupsActivity.class);
                 startActivity(feedsIntent);
             }
         }).addOnFailureListener( new OnFailureListener() {

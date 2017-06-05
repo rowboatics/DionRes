@@ -94,7 +94,7 @@
                     android:layout_height="wrap_content"
                     style="@style/UserStatsTextStyle"
                     android:layout_alignParentBottom="true"
-                    android:text="0 likes"
+                    android:text="0 Members"
                     android:layout_toRightOf="@id/separator"
                     android:layout_below="@id/user_num_following"/>
             </RelativeLayout>
