@@ -115,8 +115,8 @@ public class NewPostUploadTaskFragment extends Fragment {
     }
 
     public void uploadPost(Bitmap bitmap, String inBitmapPath, Bitmap thumbnail, String inThumbnailPath,
-                           String inFileName, String inPostText) {
-        UploadPostTask uploadTask = new UploadPostTask(bitmap, inBitmapPath, thumbnail, inThumbnailPath, inFileName, inPostText);
+                           String inFileName, String inPostAmount, String inPostText) {
+        UploadPostTask uploadTask = new UploadPostTask(bitmap, inBitmapPath, thumbnail, inThumbnailPath, inFileName, inPostAmount, inPostText);
         uploadTask.execute();
     }
 
@@ -124,15 +124,17 @@ public class NewPostUploadTaskFragment extends Fragment {
         private WeakReference<Bitmap> bitmapReference;
         private WeakReference<Bitmap> thumbnailReference;
         private String postText;
+        private String postAmount;
         private String fileName;
         private String bitmapPath;
         private String thumbnailPath;
 
         public UploadPostTask(Bitmap bitmap, String inBitmapPath, Bitmap thumbnail, String inThumbnailPath,
-                              String inFileName, String inPostText) {
+                              String inFileName, String inPostAmount, String inPostText) {
             bitmapReference = new WeakReference<Bitmap>(bitmap);
             thumbnailReference = new WeakReference<Bitmap>(thumbnail);
             postText = inPostText;
+            postAmount = inPostAmount;
             fileName = inFileName;
             bitmapPath = inBitmapPath;
             thumbnailPath = inThumbnailPath;
@@ -185,7 +187,7 @@ public class NewPostUploadTaskFragment extends Fragment {
                                 return;
                             }
                             Post newPost = new Post(author, fullSizeUrl.toString(), fullSizeRef.toString(),
-                                    thumbnailUrl.toString(), thumbnailRef.toString(), postText, ServerValue.TIMESTAMP);
+                                    thumbnailUrl.toString(), thumbnailRef.toString(), postAmount, postText, ServerValue.TIMESTAMP);
 
                             Map<String, Object> updatedUserData = new HashMap<>();
                             updatedUserData.put(FirebaseUtil.getPeoplePath() + author.getUid() + "/posts/"

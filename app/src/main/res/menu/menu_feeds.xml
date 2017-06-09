@@ -11,8 +11,11 @@
         android:icon="@drawable/ic_person_outline_black_24dp">
     </item>
     <item
+        android:id="@+id/LogoutMenu"
+        android:orderInCategory="101"
+        android:title="@string/Logout" />
+    <item
         android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:orderInCategory="102"
+        android:title="@string/action_settings" />
 </menu>

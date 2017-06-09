@@ -22,13 +22,19 @@
         android:layout_height="54sp"
         android:hint="Title" />
 
+    <EditText
+        android:id="@+id/tAmount"
+        android:layout_width="match_parent"
+        android:layout_height="54sp"
+        android:hint="Amount" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/tEventType"
             android:layout_width="157dp"
             android:layout_height="wrap_content"
             android:ems="10"

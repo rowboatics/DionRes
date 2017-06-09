@@ -100,6 +100,7 @@ public class NewPostActivity extends BaseActivity implements
             mThumbnail = thumbnail;
         }
         final EditText descriptionText = (EditText) findViewById(R.id.new_post_text);
+        final EditText amountText = (EditText) findViewById(R.id.tAmount);
 
         mSubmitButton = (Button) findViewById(R.id.new_post_submit);
         mSubmitButton.setOnClickListener(new View.OnClickListener() {
@@ -115,6 +116,13 @@ public class NewPostActivity extends BaseActivity implements
                     descriptionText.setError(getString(R.string.error_required_field));
                     return;
                 }
+
+                String postAmount = amountText.getText().toString();
+                if (TextUtils.isEmpty(postAmount)) {
+                    amountText.setError(getString(R.string.error_required_field));
+                    return;
+                }
+
                 showProgressDialog(getString(R.string.post_upload_progress_message));
                 mSubmitButton.setEnabled(false);
 
@@ -122,7 +130,7 @@ public class NewPostActivity extends BaseActivity implements
 
                 String bitmapPath = "/" + FirebaseUtil.getCurrentUserId() + "/full/" + timestamp.toString() + "/";
                 String thumbnailPath = "/" + FirebaseUtil.getCurrentUserId() + "/thumb/" + timestamp.toString() + "/";
-                mTaskFragment.uploadPost(mResizedBitmap, bitmapPath, mThumbnail, thumbnailPath, mFileUri.getLastPathSegment(),
+                mTaskFragment.uploadPost(mResizedBitmap, bitmapPath, mThumbnail, thumbnailPath, mFileUri.getLastPathSegment(), postAmount,
                         postText);
             }
         });
