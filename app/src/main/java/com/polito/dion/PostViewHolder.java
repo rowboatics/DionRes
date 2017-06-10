@@ -61,6 +61,13 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
                 mListener.showComments();
             }
         });
+
+        itemView.findViewById(R.id.post_photo).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mListener.showComments();
+            }
+        });
         mLikeIcon = (ImageView) itemView.findViewById(R.id.post_like_icon);
         mLikeIcon.setOnClickListener(new View.OnClickListener() {
             @Override
