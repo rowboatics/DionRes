@@ -18,6 +18,8 @@ package com.polito.dion.Models;
 
 public class Comment {
     private Author author;
+    private String addCost;
+    private String addType;
     private String text;
     private Object timestamp;
 
@@ -25,8 +27,10 @@ public class Comment {
         // empty default constructor, necessary for Firebase to be able to deserialize comments
     }
 
-    public Comment(Author author, String text, Object timestamp) {
+    public Comment(Author author, String addCost, String addType, String text, Object timestamp) {
         this.author = author;
+        this.addCost = addCost;
+        this.addType = addType;
         this.text = text;
         this.timestamp = timestamp;
     }
@@ -38,6 +42,10 @@ public class Comment {
     public String getText() {
         return text;
     }
+
+    public String getAddCost() {return addCost; }
+
+    public String getAddType() {return addType; }
 
     public Object getTimestamp() {
         return timestamp;

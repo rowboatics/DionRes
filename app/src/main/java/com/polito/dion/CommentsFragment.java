@@ -57,6 +57,8 @@ public class CommentsFragment extends Fragment {
     private static final String POST_REF_PARAM = "post_ref_param";
     private static final int DEFAULT_MSG_LENGTH_LIMIT = 256;
     private EditText mEditText;
+    private EditText mETAddType;
+    private EditText mETAddCost;
     private RecyclerView.Adapter<CommentViewHolder> mAdapter;
 
     private String mPostRef;
@@ -97,6 +99,9 @@ public class CommentsFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_comments, container, false);
         RecyclerView mCommentsView = (RecyclerView) rootView.findViewById(R.id.comment_list);
         mEditText = (EditText) rootView.findViewById(R.id.editText);
+        mETAddType = (EditText) rootView.findViewById(R.id.etAddType);
+        mETAddCost = (EditText) rootView.findViewById(R.id.etAddCost);
+
         final Button sendButton = (Button) rootView.findViewById(R.id.send_comment);
 
         final DatabaseReference commentsRef = FirebaseUtil.getCommentsRef().child(mPostRef);
@@ -114,6 +119,9 @@ public class CommentsFragment extends Fragment {
                         .setText(DateUtils.getRelativeTimeSpanString((long) comment.getTimestamp
                                 ()));
                 viewHolder.commentText.setText(comment.getText());
+                viewHolder.commentAddType.setText(comment.getAddType());
+                viewHolder.commentAddCost.setText(comment.getAddCost());
+
             }
         };
         sendButton.setEnabled(false);
@@ -143,7 +151,12 @@ public class CommentsFragment extends Fragment {
             public void onClick(View v) {
                 // Clear input box and hide keyboard.
                 final Editable commentText = mEditText.getText();
+                final Editable commentAddType = mETAddType.getText();
+                final Editable commentAddCost = mETAddCost.getText();
                 mEditText.setText("");
+                mETAddType.setText("");
+                mETAddCost.setText("");
+
                 InputMethodManager inputManager =
                         (InputMethodManager) getActivity().
                                 getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -160,7 +173,7 @@ public class CommentsFragment extends Fragment {
                 Author author = new Author(user.getDisplayName(),
                         user.getPhotoUrl().toString(), user.getUid());
 
-                Comment comment = new Comment(author, commentText.toString(),
+                Comment comment = new Comment(author, commentAddCost.toString(), commentAddType.toString(), commentText.toString(),
                         ServerValue.TIMESTAMP);
                 commentsRef.push().setValue(comment, new DatabaseReference.CompletionListener() {
                     @Override
@@ -191,6 +204,8 @@ public class CommentsFragment extends Fragment {
     public static class CommentViewHolder extends RecyclerView.ViewHolder {
         public final ImageView commentPhoto;
         public final TextView commentText;
+        public final TextView commentAddType;
+        public final TextView commentAddCost;
         public final TextView commentAuthor;
         public final TextView commentTime;
         public String authorRef;
@@ -199,6 +214,8 @@ public class CommentsFragment extends Fragment {
             super(itemView);
             commentPhoto = (ImageView) itemView.findViewById(R.id.comment_author_icon);
             commentText = (TextView) itemView.findViewById(R.id.comment_text);
+            commentAddType = (TextView) itemView.findViewById(R.id.comment_AddType);
+            commentAddCost = (TextView) itemView.findViewById(R.id.comment_AddCost);
             commentAuthor = (TextView) itemView.findViewById(R.id.comment_name);
             commentTime = (TextView) itemView.findViewById(R.id.comment_time);
             itemView.setOnClickListener(new View.OnClickListener() {
